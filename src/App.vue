@@ -1,47 +1,32 @@
 <template>
-    <TheHeader v-if="showName" />
-    <!-- <div v-show="showName">
-        Nome: {{ firstname }}
-        <br />
-        Sobrenome: {{ lastname }}
-    </div>
-    <div v-if="acessLevel === 'admin'">Admin</div>
-    <div v-else-if=" acessLevel=== 'marketing'">Marketing</div>
-    <div v-else>User</div> -->
-    <!-- <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    
+    <nav>
+        <router-link to="/">Home</router-link> | 
+        <router-link to="/about">About</router-link> |
+        <router-link to="/servico">Serviço</router-link> |
+        <router-link to="/usuarios/1">Usuários</router-link>
+    </nav>
+    <router-view />
 </template>
-
-<script>
-// import HelloWorld from './components/HelloWorld.vue';
-import TheHeader from './components/TheHeader.vue';
-
-
-export default {
-    name: 'App',
-    components: {
-        // HelloWorld,
-        TheHeader
-    },
-    data() {
-        return {
-            showName: true,
-            firstname: 'Jose Edmar',
-            lastname: 'Siqueira',
-            acessLevel: '',
-        };
-    },
-};
-</script>
 
 <style>
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    /* text-align: center; */
     color: #2c3e50;
-    margin-top: 60px;
+}
+
+nav {
+    padding: 30px;
+}
+
+nav a {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+    color: #42b983;
 }
 </style>
