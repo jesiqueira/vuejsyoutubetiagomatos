@@ -74,7 +74,7 @@
     <TheObeservador />
     <TheLifeCycle />
     <BaseCard />
-    <EnviandoDadoFilho :variant="variant">
+    <EnviandoDadoFilho :variant="variant" @close="onclose" v-if="showAlert">
         {{ text }}
     </EnviandoDadoFilho>
 </template>
@@ -153,7 +153,8 @@ export default {
             contract: false,
             colors: [],
             variant: 'danger',
-            text: 'Pai: Erro ao enviar'
+            text: 'Pai: Erro ao enviar',
+            showAlert: true,
         };
     },
     components: {
@@ -178,6 +179,10 @@ export default {
         },
         onKeyUp($evt) {
             console.log('Onkey com prevent', $evt);
+        },
+        onclose() {
+            console.log('On close!');
+            this.showAlert = false;
         },
     },
 };
